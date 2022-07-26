@@ -1,4 +1,4 @@
-# [大腦解鎖](https://www.youtube.com/watch?v=DgbSc6Ys710) 觀後心得
+# [腦科學驚人發現！史丹佛學者的六招學習方法！ 教育心理學| 數學學習法| 教育改革| 能力分班| 說書【腦科學/心理學】書來面對 EP19《大腦解鎖》Jo Boaler, Limitless Mind](https://www.youtube.com/watch?v=DgbSc6Ys710) 觀後心得
 
 看完影片後，收穫是真的不少，讓人反思自己的學習方法有哪些不足的地方
 > 固定型思維 vs 成長型思維
