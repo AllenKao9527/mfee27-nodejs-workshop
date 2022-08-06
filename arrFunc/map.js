@@ -25,6 +25,10 @@ let ary = [
 
 let mapResult = ary.map((item) => {
   return item.price * 2;
+  // return {
+  //   ...item,
+  //   price: item.price * 2
+  // }
 });
 
 console.log(mapResult);
@@ -34,7 +38,6 @@ console.log(mapResult);
 function map(ary) {
   let mapResult = [];
   for (let i = 0; i < ary.length; i++) {
-    // ary[i].price * 2;
     mapResult.push(ary[i].price * 2);
   }
   return mapResult;

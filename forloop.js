@@ -24,7 +24,7 @@ let ary = [
 //filter
 
 // 找出 type 是 A
-let result = ary.filter((item) => {
+let result = ary.filter ((item) => {
   return item.type === "A";
 });
 
