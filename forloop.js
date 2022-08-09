@@ -1,22 +1,22 @@
 let ary = [
   {
     id: 1,
-    type: "A",
+    type: 'A',
     price: 100,
   },
   {
     id: 2,
-    type: "B",
+    type: 'B',
     price: 200,
   },
   {
     id: 3,
-    type: "A",
+    type: 'A',
     price: 150,
   },
   {
     id: 4,
-    type: "C",
+    type: 'C',
     price: 300,
   },
 ];
@@ -24,12 +24,12 @@ let ary = [
 //filter
 
 // 找出 type 是 A
-let result = ary.filter ((item) => {
-  return item.type === "A";
+let result = ary.filter((item) => {
+  return item.type === 'A';
 });
 
 // O(n)
-ary.filter((item) => item.type === "A");
+ary.filter((item) => item.type === 'A');
 
 // result 也會是一個陣列
 console.log(result);
@@ -39,7 +39,7 @@ console.log(result);
 function filter(ary) {
   let result = [];
   for (let i = 0; i < ary.length; i++) {
-    if (ary[i].type === "A") {
+    if (ary[i].type === 'A') {
       result.push(ary[i]);
     }
   }
@@ -80,7 +80,7 @@ let mapResult = ary.map((item) => {
   return item.price * 2;
 });
 
-console.log(mapResult)
+console.log(mapResult);
 
 //map for-loop
 
@@ -93,7 +93,7 @@ function map(ary) {
   return mapResult;
 }
 
-console.log(map(ary))
+console.log(map(ary));
 
 //reduce
 

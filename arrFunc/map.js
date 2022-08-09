@@ -1,22 +1,22 @@
 let ary = [
   {
     id: 1,
-    type: "A",
+    type: 'A',
     price: 100,
   },
   {
     id: 2,
-    type: "B",
+    type: 'B',
     price: 200,
   },
   {
     id: 3,
-    type: "A",
+    type: 'A',
     price: 150,
   },
   {
     id: 4,
-    type: "C",
+    type: 'C',
     price: 300,
   },
 ];
