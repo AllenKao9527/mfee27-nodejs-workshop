@@ -27,6 +27,7 @@ function doWork(job, timer) {
 let dt = new Date();
 console.log(`開始工作 at ${dt.toISOString()}`);
 // 刷牙(3) => 吃早餐(5) => 寫功課(3)
+// 如果刷牙失敗的話，就不可以吃早餐，只能直接去寫功課
 let brushPromise = doWork('刷牙', 3000);
 // console.log(brushPromise); // pending -> 表示還不知道結果
 brushPromise
