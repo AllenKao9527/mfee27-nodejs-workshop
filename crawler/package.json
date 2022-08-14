@@ -10,9 +10,5 @@
     "crawler"
   ],
   "author": "allen",
-  "license": "ISC",
-  "dependencies": {
-    "cowsay": "^1.5.0",
-    "yosay": "^2.0.2"
-  }
+  "license": "ISC"
 }
