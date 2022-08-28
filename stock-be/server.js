@@ -8,24 +8,24 @@ const app = express();
 // 至少在同一個檔案中，可以放到最上方統一管理
 // 目標是: 只需要改一個地方，全部的地方就生效
 // 降低漏改到的風險 -> 降低程式出錯的風險
-const port = process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT || 3002;
 
+// npm i cors
 const cors = require('cors');
+// 使用這個第三方提供的 cors 中間件
+// 來允許跨源存取
+// 預設都是全部開放
 app.use(cors());
+// 使用情境: 當前後端網址不同時，只想允許自己的前端來跨源存取
+//          就可以利用 origin 這個設定來限制，不然預設是 * (全部)
+// const corsOptions = {
+//   origin: ['http://localhost:3000'],
+// };
+// app.use(cors(corsOptions));
 
 // 使用資料庫
-const mysql = require('mysql2');
-let pool = mysql
-  .createPool({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    // 限制資料庫連線的上限
-    connectionLimit: 10,
-  })
-  .promise();
+const pool = require('./utils/db');
+
 // 設定視圖引擎，我們用的是 pug
 // npm i pug
 app.set('view engine', 'pug');
@@ -78,20 +78,8 @@ app.get('/test', (req, res, next) => {
   // next();
 });
 
-// API
-// 列出所有股票代碼
-// GET /stocks
-app.get('/api/1.0/stocks', async (req, res, next) => {
-  // 寫法1:
-  // let result = await pool.execute('SELECT * FROM stocks');
-  // let data = result[0];
-  // 寫法2:
-
-  let [data] = await pool.execute('SELECT * FROM stocks');
-
-  // console.log('result', data);
-  res.json(data);
-});
+let stockRouter = require('./routers/stocks');
+app.use('/api/1.0/stocks',stockRouter);
 
 // app.get('/test', (req, res, next) => {
 //   console.log('這裡是 test 2');
