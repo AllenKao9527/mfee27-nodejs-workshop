@@ -36,6 +36,10 @@ const StockDetails = () => {
   const getPages =()=>{
     let pages =[]
     for(let i=1;i<=lastPage;i++){
+
+
+      
+
       pages.push(
         <li style={{
           display: 'inline-block',
