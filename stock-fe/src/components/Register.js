@@ -16,9 +16,14 @@ const Register = () => {
     setMember(newMember)
   }
 
-  function handleSubmit (e){
+  async function handleSubmit (e){
     e.preventDefault();
-    axios.post(`${API_URL}/auth/register`,member)
+    try {
+      let response = await axios.post(`${API_URL}/auth/register`, member);
+      console.log(response.data);
+    } catch (e) {
+      console.error('register', e);
+    }
   }
 
   return (

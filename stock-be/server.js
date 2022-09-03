@@ -26,6 +26,8 @@ app.use(cors());
 // 使用資料庫
 const pool = require('./utils/db');
 
+app.use(express.json());
+
 // 設定視圖引擎，我們用的是 pug
 // npm i pug
 app.set('view engine', 'pug');
@@ -79,7 +81,10 @@ app.get('/test', (req, res, next) => {
 });
 
 let stockRouter = require('./routers/stocks');
-app.use('/api/1.0/stocks',stockRouter);
+app.use('/api/1.0/stocks', stockRouter);
+
+let authRouter = require('./routers/auth');
+app.use(authRouter);
 
 // app.get('/test', (req, res, next) => {
 //   console.log('這裡是 test 2');
