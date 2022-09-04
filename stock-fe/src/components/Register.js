@@ -6,8 +6,8 @@ const Register = () => {
   const [member, setMember] = useState({
     email: 'eee@test.com',
     name:'456',
-    password:'123',
-    confirmPassword:'123',
+    password:'12345678',
+    confirmPassword:'12345678',
   })
 
   function handleChange (e){
@@ -16,9 +16,29 @@ const Register = () => {
     setMember(newMember)
   }
 
-  function handleSubmit (e){
+  function handleUpload(e) {
+    setMember({ ...member, photo: e.target.files[0] });
+  }
+
+  async function handleSubmit (e){
     e.preventDefault();
-    axios.post(`${API_URL}/auth/register`,member)
+    try {
+      // 不上傳圖片 
+      // let response = await axios.post(`${API_URL}/auth/register`, member);
+      // console.log(response.data);
+
+      // 要上傳圖片 FormData
+      let formData = new FormData();
+      formData.append('email', member.email);
+      formData.append('name', member.name);
+      formData.append('password', member.password);
+      formData.append('confirmPassword', member.confirmPassword);
+      formData.append('photo', member.photo);
+      let response = await axios.post(`${API_URL}/auth/register`, formData);
+      console.log(response.data);
+    } catch (e) {
+      console.error('register', e);
+    }
   }
 
   return (

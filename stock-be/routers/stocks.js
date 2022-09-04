@@ -4,21 +4,15 @@ const router = express.Router();
 
 const pool = require('../utils/db');
 
-// router.use
-// router.get
-
 // API
 // 列出所有股票代碼
 // GET /stocks
 router.get('/', async (req, res, next) => {
   console.log('/api/1.0/stocks');
 
-  // 寫法1:
   // let result = await pool.execute('SELECT * FROM stocks');
   // let data = result[0];
-  // 寫法2:
   let [data] = await pool.execute('SELECT * FROM stocks');
-
   // console.log('result', data);
   res.json(data);
 });
